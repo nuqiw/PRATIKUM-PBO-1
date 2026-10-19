@@ -1,45 +1,30 @@
+
 <?php
-
-class product {
-
-    //property
+class Produk {
     public string $kode;
     public string $nama;
-    public int $Harga;
+    public int $harga;
     public int $stok;
 
-    //constant
     public const PAJAK = 0.11;
+}
 
-   }
+$produk = new Produk();
+$produk->kode = 'P0001';
+$produk->nama = 'Laptop';
+$produk->harga = 10000000;
+$produk->stok = 5;
 
-    //object
-    $produk = new product();
-    $produk->kode = 'P000';
-    $produk->nama = 'Laptop';
-    $produk->Harga = 10000000;
-    $produk->Stok = 5;
+$pajak = Produk::PAJAK * 100;
+$jumlahPajak = $produk->harga * Produk::PAJAK;
+$total = $produk->harga + $jumlahPajak;
 
-    //hitung pajak
-    $Pajak = product::PAJAK * 100; // 11
-    $jumlahpajak = $produk->Harga * product::PAJAK; //1,1 juta
+$harga = number_format($produk->harga, 0, ',', '.');
+$totalHarga = number_format($total, 0, ',', '.');
 
-    //total
-    $total = $produk->Harga + $jumlahpajak;
-
-    //hasil
-    echo "produk: ". $produk->nama;
-    echo "<br/>";
-
-    // Menggunakan number_format untuk Harga
-    echo "Harga: Rp. ". number_format($produk->Harga, 0, ',', '.');
-    echo "<br/>";
-
-    echo "Stok: ". $produk->Stok;
-    echo "<br/>";
-
-    echo "Pajak: ". $Pajak. "%";
-    echo "<br/>";
-
-    // Menggunakan number_format untuk total
-    echo "Total Harga Setelah Terkena Pajak Menjadi Rp. ". number_format($total, 0, ',', '.');
+echo "Produk: " . $produk->nama . "<br>";
+echo "Harga: Rp" . $harga . "<br>";
+echo "Stok: " . $produk->stok . "<br>";
+echo "Pajak: " . $pajak . "%<br>";
+echo "Total harga setelah pajak: Rp" . $totalHarga;
+?>
