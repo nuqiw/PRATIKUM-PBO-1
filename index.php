@@ -1,24 +1,29 @@
 <?php
 
 //panggil file PropertyConstant
-require('./produk.php');
+require('./PropertyConstant.php');
 
 use Pbo\marketplace\product;
 
 //object
-$produk = new product('P0001','Laptop',1000000,5);
+$produk = new product();
+
+$produk->setKode('P0001')
+       ->setNama('Laptop')
+       ->setHarga(100000000)
+       ->setStok(5);
 
 //hasil
-echo "produk: ". $produk->nama;
+echo "Produk: ". $produk->getNama();
 echo "<br/>";
 
-echo "harga: rp.". $produk->harga;
+echo "Harga: Rp.". $produk->getHarga();
 echo "<br/>";
 
-echo "stok: ". $produk->stok;
+echo "Stok: ". $produk->getStok();
 echo "<br/>";
 
-echo "pajak: ". $produk->pajak(). "%";
+echo "Pajak: ". $produk->pajak(). "%";
 echo "<br/>";
 
-echo "total harga setelah pajak: RP". $produk->total();
+echo "Total Harga Setelah Pajak: Rp.". $produk->total();
