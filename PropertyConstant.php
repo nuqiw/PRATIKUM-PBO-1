@@ -1,8 +1,8 @@
 <?php
 
-namespace Pbo\marketplace;
+namespace Pbo\Marketplace;
 
-class product {
+trait product {
 
     //property
     private string $kode;
